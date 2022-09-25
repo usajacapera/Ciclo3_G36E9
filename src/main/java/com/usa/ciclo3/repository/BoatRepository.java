@@ -1,30 +1,27 @@
 package com.usa.ciclo3.repository;
 
-
 import com.usa.ciclo3.model.Boat;
 import com.usa.ciclo3.repository.crud.BoatCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
-
 @Repository
 public class BoatRepository {
-
     @Autowired
     private BoatCrudRepository boatCrudRepository;
-
     public List<Boat> getAll(){
         return (List<Boat>)boatCrudRepository.findAll();
     }
-
     public Optional<Boat> getBoat(int idBoat){
         return boatCrudRepository.findById(idBoat);
     }
-
     public Boat save(Boat b){
         return boatCrudRepository.save(b);
     }
+    public void delete(Boat b){
+        boatCrudRepository.delete(b);
+    }
+
 
 }

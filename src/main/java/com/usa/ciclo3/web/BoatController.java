@@ -33,4 +33,9 @@ public class BoatController {
     public Boat save(@RequestBody Boat b){
         return boatService.save(b);
     }
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Boat update(@RequestBody Boat b){
+        return boatService.update(b);
+    }
 }

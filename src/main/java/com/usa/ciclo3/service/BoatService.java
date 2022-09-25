@@ -27,11 +27,36 @@ public class BoatService {
             return boatRepository.save(b);
         }else{
             Optional<Boat> baux = boatRepository.getBoat(b.getIdBoat());
-            if(baux.isEmpty()){
+            if(baux.isPresent()){
+                return b;
+            }else{
                 return boatRepository.save(b);
+            }
+        }
+    }
+    public Boat update(Boat b){
+        if(b.getIdBoat() != null){
+            Optional<Boat> q = boatRepository.getBoat(b.getIdBoat());
+            if(q.isPresent()){
+                if(b.getName() != null){
+                    q.get().setName(b.getName());
+                }
+                boatRepository.save(q.get());
+                return q.get();
             }else{
                 return b;
             }
+        }else{
+            return b;
         }
+    }
+    public boolean delete(int idBoat){
+        boolean flag = false;
+        Optional<Boat> b = boatRepository.getBoat(idBoat);
+        if(b.isPresent()){
+            boatRepository.delete(b.get());
+            flag = true;
+        }
+        return flag;
     }
 }
