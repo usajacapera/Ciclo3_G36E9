@@ -18,15 +18,15 @@ public class BoatService {
         return boatRepository.getAll();
     }
 
-    public Optional<Boat> getBoat(int id){
-        return boatRepository.getBoat(id);
+    public Optional<Boat> getBoat(int idBoat){
+        return boatRepository.getBoat(idBoat);
     }
 
     public Boat save(Boat b){
-        if(b.getId() == null){
+        if(b.getIdBoat() == null){
             return boatRepository.save(b);
         }else{
-            Optional<Boat> baux = boatRepository.getBoat(b.getId());
+            Optional<Boat> baux = boatRepository.getBoat(b.getIdBoat());
             if(baux.isEmpty()){
                 return boatRepository.save(b);
             }else{

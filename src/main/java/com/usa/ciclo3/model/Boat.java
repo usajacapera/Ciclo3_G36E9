@@ -9,18 +9,18 @@ public class Boat implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idBoat;
     private String brand;
     private Integer model;
     private Integer category_id;
     private String name;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdBoat() {
+        return idBoat;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idBoat) {
+        this.idBoat = idBoat;
     }
 
     public String getBrand() {

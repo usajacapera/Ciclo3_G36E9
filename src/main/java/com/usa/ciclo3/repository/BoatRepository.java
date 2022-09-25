@@ -19,8 +19,8 @@ public class BoatRepository {
         return (List<Boat>)boatCrudRepository.findAll();
     }
 
-    public Optional<Boat> getBoat(int id){
-        return boatCrudRepository.findById(id);
+    public Optional<Boat> getBoat(int idBoat){
+        return boatCrudRepository.findById(idBoat);
     }
 
     public Boat save(Boat b){
