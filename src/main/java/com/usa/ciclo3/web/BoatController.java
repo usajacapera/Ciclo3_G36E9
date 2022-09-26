@@ -23,9 +23,9 @@ public class BoatController {
         return boatService.getAll();
     }
 
-    @GetMapping("/{idBoat}")
-    public Optional<Boat> getBoat(@PathVariable("idBoat") int idBoat){
-        return boatService.getBoat(idBoat);
+    @GetMapping("/{id}")
+    public Optional<Boat> getBoat(@PathVariable("id") int id){
+        return boatService.getBoat(id);
     }
 
     @PostMapping("/save")
@@ -37,5 +37,10 @@ public class BoatController {
     @ResponseStatus(HttpStatus.CREATED)
     public Boat update(@RequestBody Boat b){
         return boatService.update(b);
+    }
+    @DeleteMapping("/delete")
+    public Void delete(int id){
+        boatService.delete(id);
+        return null;
     }
 }

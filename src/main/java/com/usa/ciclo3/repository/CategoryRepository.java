@@ -19,8 +19,8 @@ public class CategoryRepository {
         return (List<Category>)categoryCrudRepository.findAll();
     }
 
-    public Optional<Category> getCategory(int idCategory){
-        return categoryCrudRepository.findById(idCategory);
+    public Optional<Category> getCategory(int id){
+        return categoryCrudRepository.findById(id);
     }
 
     public Category save(Category ct){

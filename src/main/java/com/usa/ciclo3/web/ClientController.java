@@ -24,9 +24,9 @@ public class ClientController {
         return clientService.getAll();
     }
 
-    @GetMapping("/{idClient}")
-    public Optional<Client> getClient(@PathVariable("idClient") int idClient){
-        return clientService.getClient(idClient);
+    @GetMapping("/{id}")
+    public Optional<Client> getClient(@PathVariable("id") int id){
+        return clientService.getClient(id);
     }
 
     @PostMapping("/save")

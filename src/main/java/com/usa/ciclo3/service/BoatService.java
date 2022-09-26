@@ -18,15 +18,15 @@ public class BoatService {
         return boatRepository.getAll();
     }
 
-    public Optional<Boat> getBoat(int idBoat){
-        return boatRepository.getBoat(idBoat);
+    public Optional<Boat> getBoat(int id){
+        return boatRepository.getBoat(id);
     }
 
     public Boat save(Boat b){
-        if(b.getIdBoat() == null){
+        if(b.getId() == null){
             return boatRepository.save(b);
         }else{
-            Optional<Boat> baux = boatRepository.getBoat(b.getIdBoat());
+            Optional<Boat> baux = boatRepository.getBoat(b.getId());
             if(baux.isPresent()){
                 return b;
             }else{
@@ -35,12 +35,12 @@ public class BoatService {
         }
     }
     public Boat update(Boat b){
-        if(b.getIdBoat() != null){
-            Optional<Boat> q = boatRepository.getBoat(b.getIdBoat());
+        if(b.getId() != null){
+            Optional<Boat> q = boatRepository.getBoat(b.getId());
             if(q.isPresent()){
-                if(b.getName() != null){
-                    q.get().setName(b.getName());
-                }
+                //if(b.getName() != null){
+                    //q.get().setName(b.getName());
+               // }
                 boatRepository.save(q.get());
                 return q.get();
             }else{
@@ -50,9 +50,9 @@ public class BoatService {
             return b;
         }
     }
-    public boolean delete(int idBoat){
+    public boolean delete(int id){
         boolean flag = false;
-        Optional<Boat> b = boatRepository.getBoat(idBoat);
+        Optional<Boat> b = boatRepository.getBoat(id);
         if(b.isPresent()){
             boatRepository.delete(b.get());
             flag = true;

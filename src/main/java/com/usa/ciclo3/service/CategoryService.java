@@ -23,10 +23,10 @@ public class CategoryService {
     }
 
     public Category save(Category ct){
-        if(ct.getIdCategory() == null){
+        if(ct.getId() == null){
             return categoryRepository.save(ct);
         }else{
-            Optional<Category> ctaux = categoryRepository.getCategory(ct.getIdCategory());
+            Optional<Category> ctaux = categoryRepository.getCategory(ct.getId());
             if(ctaux.isPresent()){
                 return categoryRepository.save(ct);
             }else{

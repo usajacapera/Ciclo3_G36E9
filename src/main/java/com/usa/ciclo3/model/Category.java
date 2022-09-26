@@ -1,8 +1,11 @@
 package com.usa.ciclo3.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="category")
@@ -10,18 +13,20 @@ public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategory;
+    private Integer id;
     private String name;
     private String description;
 
-    //@OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
+    public List<Boat> boats;
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,5 +43,13 @@ public class Category implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Boat> getBoats() {
+        return boats;
+    }
+
+    public void setBoats(List<Boat> boats) {
+        this.boats = boats;
     }
 }

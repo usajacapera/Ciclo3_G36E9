@@ -13,8 +13,8 @@ public class BoatRepository {
     public List<Boat> getAll(){
         return (List<Boat>)boatCrudRepository.findAll();
     }
-    public Optional<Boat> getBoat(int idBoat){
-        return boatCrudRepository.findById(idBoat);
+    public Optional<Boat> getBoat(int id){
+        return boatCrudRepository.findById(id);
     }
     public Boat save(Boat b){
         return boatCrudRepository.save(b);
