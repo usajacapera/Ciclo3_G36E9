@@ -1,6 +1,6 @@
 package repository;
 
-import crud.BoatCrudRepository;
+import repository.crud.BoatCrudRepository;
 import java.util.List;
 import java.util.Optional;
 import model.Boat;

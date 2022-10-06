@@ -1,4 +1,4 @@
-package crud;
+package repository.crud;
 
 import model.Boat;
 import org.springframework.data.repository.CrudRepository;
